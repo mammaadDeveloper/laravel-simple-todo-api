@@ -40,14 +40,23 @@ class AuthController extends Controller
             ], 500);
 
         return response()->json([
-            'success'=> true,
-            'status'=> 200,
+            'success' => true,
+            'status' => 200,
             'messsage' => 'User logged in successfully!',
             'data' => [
-                'token'=> $result,
+                'token' => $result,
                 'user'
             ]
-            ]);
+        ]);
     }
-    public function logout() {}
+    public function logout()
+    {
+        \auth()->user()->tokens()->delete();
+
+        return response()->json([
+            'success' => true,
+            'status' => 204,
+            'message' => ''
+        ], 204);
+    }
 }

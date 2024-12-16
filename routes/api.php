@@ -8,6 +8,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
 
     // Protected routes
     Route::middleware('auth:sanctim')->group(function (){
+        Route::post('/logout', "AuthController@logout");
     });
 
     // Free routes
