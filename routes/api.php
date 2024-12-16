@@ -8,12 +8,12 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
 
     // Protected routes
     Route::middleware('auth:sanctim')->group(function (){
-
     });
 
     // Free routes
     Route::middleware('guest')->group(function (){
         Route::post('/register', 'AuthController@register');
+        Route::post('/login', 'AuthController@login');
     });
 
 });
